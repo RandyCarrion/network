@@ -23,6 +23,7 @@ app.get('/', (req, res, err) => {
 	res.render('index')
 })
 
+/*-----access_token----*/
 app.get('/redirectUrl', (req, res)=> {
 	var code = req.query.code
 	var state = req.query.state
@@ -37,7 +38,7 @@ app.get('/redirectUrl', (req, res)=> {
  			'Content-type': 'application/x-www-form-urlencoded'
  		}
 	};
-	request(options, function (error, response, body){
+	request(options, function (error, res, body){
 		debugger
 		if(error) throw error
 		console.log("RESPONSE: ", body)
