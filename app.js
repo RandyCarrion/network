@@ -4,7 +4,7 @@ const pg = require('pg')
 const session = require('express-session')
 require('dotenv').load()
 const Client = pg.Client
-const rp = require('request-promise')
+const request = require('request')
 	
 const client = new Client({
 		user:process.env.user,
@@ -25,17 +25,22 @@ app.get('/', (req, res, err) => {
 
 app.get('/redirectUrl', (req, res)=> {
 	var code = req.query.code
+	var state = req.query.state
+	var id = process.env.Linkedin
+	var secret = process.env.clientSecret
+	console.log(code)
 	const options = {
 		method: 'POST',
-		uri: 'https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=AQRSbDtv05_qx66vCEA3vEJ8u6FDHj4D-qxbiQWqTTiTAzwxy0r-aRYto1pN54lZTDZKqKdKq0lIDtTgFOCQtcizJYsUv0KR27yXoE6Gy7pCmRu2pHPzTS8KC2xImENnCuqVjwdPcGunEgu_ZI8OHGgG1xK_Jg&client_id=78xhz4xgziog5d&redirect_uri=http://localhost:3000/redirectUrl&client_secret=v2a6T8JMnKLKXH5D',
+		uri: `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${code}&client_id=${id}&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2FredirectUrl&client_secret=${secret}`,
 		json: true,
+		headers: {
+ 			'Content-type': 'application/x-www-form-urlencoded'
+ 		}
 	};
-	rp(options)
-	.then(function (response){
-		response.render('index')
-	})
-	.catch(function (err) {
-		console.log("ERROR 50: ", err)	
+	request(options, function (error, response, body){
+		debugger
+		if(error) throw error
+		console.log("RESPONSE: ", body)
 	})
 })
 
