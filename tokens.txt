@@ -1,0 +1,9 @@
+Steps for Linkedin API
+1)client logs in with linkedin on browser.
+this then redirects to linkedin. User rejects or accepts. 
+if adccepted, redirect to specified page in URL (code sent to app.post ('redirectURL')
+which is req.query.code(this is the get request from Linkedin , from the request library is: request(({method: POST, data{ )) This server then asks content from linkedin with 
+
+https://www.linkedin.com/uas/oauth/authorize?oauth_token=78--4d6aab21-439f-470b-8cb6-929aa1e1cfc3&state=
+https://www.linkedin.com/uas/oauth/authorize?oauth_token=78--b69e2735-183b-4ebe-95b5-9f2c21d9e0ec&state=
+https://www.linkedin.com/uas/oauth/authorize?oauth_token=78--4455c2ec-1d63-4577-8b25-732bc4f98cd5&state=

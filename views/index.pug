@@ -1,0 +1,18 @@
+html
+	head
+		//- script(src="https://api.linkedin.com/v1/people/~?format=json")
+		script(src="https://code.jquery.com/jquery-3.2.1.js"
+			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			crossorigin="anonymous")
+		script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		script(type="text/javascript", src="//platform.linkedin.com/in.js").
+			api_key: 78xhz4xgziog5d
+			authorize: [true]
+
+	title Home
+	body
+		h1 Welcome index
+	
+		a(href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78xhz4xgziog5d&redirect_uri=http://localhost:3000/redirectUrl&state=asd123123dfasdf&scope=r_basicprofile")
+			img(src="images/Linkedin.png" id="inLogo")
