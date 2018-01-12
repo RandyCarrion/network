@@ -23,7 +23,7 @@ app.get('/', (req, res, err) => {
 	res.render('index')
 })
 
-/*-----access_token----*/
+/*-----access_token and linkedin json data----*/
 app.get('/redirectUrl', (req, res)=> {
 	var code = req.query.code
 	var state = req.query.state
@@ -38,20 +38,24 @@ app.get('/redirectUrl', (req, res)=> {
  			'Content-type': 'application/x-www-form-urlencoded'
  		}
 	};
-	request(options, function (error, res, body){
-		debugger
+	request(options, function (error, response, body){
 		if(error) throw error
+		debugger
 		console.log("RESPONSE: ", body)
+		const options2 = {
+			method: "GET",
+			uri: 'https://api.linkedin.com/v1/people/~?format=json',
+			headers: {
+				'Authorization': 'Bearer ' + body.access_token
+			}
+		}
+		request(options2, function(error, response, body) {
+			debugger
+			if (error) throw error
+			console.log("ERROR: ", error)
+			console.log('body: ', body)
+		})
 	})
-})
-
-
-app.post('/redirectUrl', (req,res)=> {
-	var code = req.body.code,
-		state = req.body.code
-	console.log("code: ", code)
-	console.log("state: ", state)
-	res.redirect('/index')
 })
 
 app.listen(process.env.webport, function(){
