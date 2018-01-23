@@ -1,0 +1,16 @@
+nav
+	a(href="/" id="logo")
+		img(src="images/logo.png" id="logo")
+	ul
+		li 
+			a(class="navLink") How it works
+		li  
+			a(href="/createActivity" class="navLink") Create Activity	
+		if (user)
+			li
+				a(href="/logout" class="navLink") Logout
+		if (!user)
+			li
+				a(class="navLink" href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78xhz4xgziog5d&redirect_uri=http://localhost:3000/redirectUrl&state=asd123123dfasdf&scope=r_basicprofile" id="navlink") Login
+		li 
+			a(href="/login" class="navLink") Activities

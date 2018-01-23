@@ -1,0 +1,140 @@
+
+body{
+	width: 100%;
+	position: relative;
+	height: 100%;
+}
+nav{
+	width: 100%;
+	height: 70 px;
+	top: 0;
+/*	 Ensures there is no space between sides of the screen and the menu 
+*/	z-index: 100;
+	/* Makes sure that your menu remains on top of other page elements */
+	position: fixed;
+	background-color: white;
+}
+
+nav li {
+    height: 35px;
+    width: 100px;
+    list-style-type: none;
+    background-color: white;
+    display: inline-block;
+    padding-right: 35px;
+}
+
+.navLink {
+    background-color: #0077b5;
+    width: 100px;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+nav ul {
+	float: right;
+}
+
+.spacer{
+	width: 100%;
+	height: 60px;
+}
+
+.slogan {
+  font-family: SourceSansPro-Regular;
+  font-size: 25px;
+  font-weight: 550;
+  color: #313335; 
+  margin: 0;
+  width: 60%;
+  float: right;
+}
+
+.container {
+    width: 99%;
+    height: 100%;
+    margin: 0;
+}
+
+.homeSearch{
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  margin-top: 275px;
+  z-index: 1;
+  font-size: 15px;
+}
+
+.cities {
+  margin-bottom: 0;
+}
+#searchBar{
+  width: 60%;
+  border-radius: 4px;
+  border: 2px solid #0077b5;
+  height: 40px;
+  font-size: 25px;
+  color: #358cc1;
+  padding-left: 15px;
+}
+
+#map1 {
+  width: 99%;
+}
+
+#map2 {
+  width: 99%;
+
+}
+
+#logo{
+  width: 22%;
+  float: left;
+}
+
+.title{
+  display: block;
+  width: 35%;
+  padding: 45px 1px 10px 19px;
+  border: 1px solid;
+}
+
+#activityInput{
+  width: 60%;
+  height: 6%;
+  padding-left: 10px;
+  font-size: 20px;
+  min-height:40px;
+  border: 2px solid #0077b5;
+}
+
+#createActivity {
+  width: 60%;
+  height: 6%;
+  padding-left: 10px;
+  min-height: 40px;
+  font-size: 20px;
+  font-weight: 250;
+  border: 2px solid #0077b5;
+}
+#createForm{
+  display: block;
+  align-content: center;
+  margin: 0px 0 0;
+  width: 75%;
+}
+
+.cities {
+  font-size: 20px;
+  font-weight: bold;
+  font
+}
+
+.forms{
+  text-align: center;
+  position: absolute;
+}

@@ -1,18 +1,57 @@
 html
 	head
-		//- script(src="https://api.linkedin.com/v1/people/~?format=json")
-		script(src="https://code.jquery.com/jquery-3.2.1.js"
-			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-			crossorigin="anonymous")
-		script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+		link(rel='stylesheet', href='/css/main.css', type='text/css')
 		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+		link(href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet")
 		script(type="text/javascript", src="//platform.linkedin.com/in.js").
 			api_key: 78xhz4xgziog5d
 			authorize: [true]
 
-	title Home
+		title Home
 	body
-		h1 Welcome index
-	
-		a(href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78xhz4xgziog5d&redirect_uri=http://localhost:3000/redirectUrl&state=asd123123dfasdf&scope=r_basicprofile")
-			img(src="images/Linkedin.png" id="inLogo")
+		include navbar.pug
+		.container
+			.spacer
+				div(class="homeBar") 
+					form(class="homeSearch")
+						input(type='text' id='searchBar' placeholder='Where are you?')
+						p(class='slogan') Lets network
+				img(src="images/map1.png" id="map1")
+
+		script.
+			$(document).ready(function() {
+				console.log ("Ready")
+				var timeOut = Date.now()			
+				if (true){
+					timeOut =Date.now()
+					$("#searchBar").keyup(function(e) {
+
+					var peter = $("#searchBar").val()	
+					console.log(peter)			
+					console.log(e.which)
+						if (e.which == 13){
+							console.log("Press Enter" + e.which)
+						}
+						else if (peter.length > 0) {
+							console.log("It works:" + peter)
+							$.ajax({ /*AJAX for searchbar cities*/
+								type: "POST",
+								url: "/",
+								data: {searchData: peter},
+								dataType: "json",
+								success: function(result){
+									$( "#searchBar" ).autocomplete({
+
+										source: result.search
+									})
+								},
+								error: function(err){
+									console.log(err)
+								}
+
+							})//ajax2
+						}//elseif
+					})//keyup
+				}//timeout
+			})	

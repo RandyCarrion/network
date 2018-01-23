@@ -1,0 +1,34 @@
+html
+	head
+		link(rel='stylesheet', href='/css/main.css', type='text/css')
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+		link(href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet")
+	title Create Activity
+
+	body
+		include navbar.pug
+		.container
+			.spacer
+
+			h1 Create an Activity
+			div.CEform
+				form(class="forms" id="createForm" method="POST" action="/createActivity")
+					p(class="cities" id="city") Choose city:
+					input(type="text" placeholder="City" name="city" id="activityInput")
+					br
+					br
+					p(class="cities") Activity:
+					textarea(row="15" column="25" type="text" placeholder="Describe the activity" name="activity" id="createActivity")
+					br
+					br
+					p(class="cities") Choose a date:
+					input(type="date" name="date" id="activityInput")
+					br
+					br
+					p(class="cities") Choose a time:
+					input(type="time" name="time" id="activityInput")
+					br
+					br
+					input(type="submit" value="Create Activity")
+			img(src="images/create1.png" id="map2")

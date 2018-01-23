@@ -1,0 +1,47 @@
+html
+	head
+		link(rel='stylesheet', href='/css/main.css', type='text/css')
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+		script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+		link(href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet")
+	title Profile
+	style(type='text/css').
+		p {
+			text-align: center !important;
+		}
+		#create {
+			height: 10%;
+		}
+		.createEvent::after {
+			content: "Create New Event";
+			vertical-align: center;
+		}
+		.createEvent {
+			float: left;
+		}
+
+	body
+		include navbar.pug
+		.container
+			.spacer
+
+			h1 Welcome: #{user.name}
+
+			p
+				A(href="/createActivity")
+					div.createEvent
+						img(src="/images/create.png" id="create")
+			
+			h1.profile Activities
+			//- each item in activities
+			//- 	p
+			//- 		div.allActivity
+			//- 			ul.title
+			//- 				p
+			//- 				|#{item.location}
+			//- 				p
+			//- 				|#{item.activity}
+			//- 				p
+			//- 				|#{item.date}
+			//- 				p
+			//- 				|#{item.time}
